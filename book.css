@@ -296,10 +296,6 @@ span {
   }
 }
 
-.column {
-  line-height: 1vw;
-}
-
 #papyrus {
   position: fixed;
   top: 0;
@@ -318,14 +314,14 @@ span {
   font-style: normal;
 }
 
-.container {
-}
 .column {
+  line-height: 1vw;
   position: absolute;
   display: inline-block;
 }
 #minor {
   left: 43%;
+  padding-bottom: 100px;
 }
 .imagecontainer img {
   height: 100%;
@@ -436,7 +432,7 @@ span {
   margin-top: 20px;
 }
 .minor-tip-line {
-  font-size: 1.6vw;
+  font-size: 1.5vw;
   line-height: 12px;
 }
 #linetipimage {
