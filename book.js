@@ -329,7 +329,7 @@ function updateHighlightedLines(line) {
       behavior: "smooth",
   });
 
-  addLinesAfterImageHasLoaded(line, imageToAdd, img);
+  addLinesAfterImageHasLoaded(line, imageToAdd, img, imageID);
 }
 
 function highlightLineWhenHovered(l) {
@@ -345,11 +345,16 @@ function updateLinesWhenClicked(l) {
   }
 }
 
-function addLinesAfterImageHasLoaded(line, imageToAdd, img) {
+function addLinesAfterImageHasLoaded(line, imageToAdd, img, imageID) {
   if (!coordinates.has(line)) {
     return;
   }
-  imagecontainer.innerHTML = ""
+
+  // Have we added the line boxes to the image already?
+  let imageParent = document.getElementById(imageID).parentElement;
+  if (imageParent.getElementsByClassName("hexameter-line").length > 0) {
+    return;
+  }
 
   // Add all line boxes to the image.
   let linesInImage = linesForImage.get(imageToAdd);
@@ -364,7 +369,7 @@ function addLinesAfterImageHasLoaded(line, imageToAdd, img) {
     lineDiv.style.left = ((area.x / img.naturalWidth) * 100) + '%';
     lineDiv.addEventListener("mouseenter", highlightLineWhenHovered(l));
     lineDiv.addEventListener("click", updateLinesWhenClicked(l));
-    imagecontainer.appendChild(lineDiv);
+    imageParent.appendChild(lineDiv);
   });
   updateLineHighlights(line);
 }

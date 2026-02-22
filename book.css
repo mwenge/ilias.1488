@@ -332,6 +332,7 @@ span {
 }
 .slide {
   scroll-snap-align: center;
+  position: relative;
 }
 #imagecontainer {
   position: fixed;
