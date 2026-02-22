@@ -113,7 +113,6 @@ function displayPayprusLine(lineNumber) {
   var ctx = canvas.getContext('2d', {alpha: false});
   let imageID = imageIDs.get(currentImage);
   let img = document.getElementById(imageID);
-  console.log(currentImage, img);
   if (!img) {
     return;
   }
