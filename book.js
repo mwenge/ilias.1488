@@ -7,8 +7,8 @@ function scrollToBookmark(page) {
   var positionOnPage = pageName + "ScrollPosition";
   var scrollPosition = localStorage.getItem(positionOnPage);
   if (scrollPosition == null) {
-    updateHighlightedLines(127);
-    document.getElementById("line-123").scrollIntoView();
+    updateHighlightedLines(5);
+    document.getElementById("line-1").scrollIntoView();
     return;
   }
   window.scrollTo(0, scrollPosition)
