@@ -1,6 +1,7 @@
 var translations = [];
 var translatedSection = null;
 var current = 0;
+let imageIDs = null;
 
 function scrollToBookmark(page) {
   var pageName = page.replace(".html", "");
@@ -25,6 +26,11 @@ function loadPageToScrollPosition() {
   var book = titleElements[0] + titleElements[1];
   var path = window.location.pathname;
   var page = path.split("/").pop();
+
+  //Load the image ID map for all images in the document.
+  imageIDs = new Map(
+    Array.from(document.getElementsByTagName("img")).map(x => [x.getAttribute("src"),x.id])
+  );
 
   let allLines = Array.from(document.getElementsByClassName("hexameter-line"));
   allLines.forEach( i => {
@@ -278,28 +284,6 @@ function hideComment() {
 function hideTip() {
   linetip.style.display = "none";
 }
-
-let imageIDs = new Map(
-  [
-    ["images/102.jpg", "page102_image"],
-    ["images/103.jpg", "page103_image"],
-    ["images/104.jpg", "page104_image"],
-    ["images/105.jpg", "page105_image"],
-    ["images/106.jpg", "page106_image"],
-    ["images/107.jpg", "page107_image"],
-    ["images/108.jpg", "page108_image"],
-    ["images/109.jpg", "page109_image"],
-    ["images/110.jpg", "page110_image"],
-    ["images/111.jpg", "page111_image"],
-    ["images/112.jpg", "page112_image"],
-    ["images/113.jpg", "page113_image"],
-    ["images/114.jpg", "page114_image"],
-    ["images/115.jpg", "page115_image"],
-    ["images/116.jpg", "page116_image"],
-    ["images/117.jpg", "page117_image"],
-    ["images/118.jpg", "page118_image"],
-  ]
-);
 
 let currentImage = null;
 function updateHighlightedLines(line) {

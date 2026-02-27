@@ -336,7 +336,7 @@ span {
   position: absolute;
   z-index: 0;
 }
-#minor .hexameter-line {
+#minor .hexameter-line, .masthead {
   margin-left: 2vw;
   margin-right: 2vw;
 }
